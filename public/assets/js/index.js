@@ -56,6 +56,13 @@ const handleNoteSave = function () {
     text: $noteText.val(),
   };
 
+  console.log("test");
+  $.post("/api/notes", newNote)
+  .then(function(data) {
+    console.log("notes.html", data);
+    alert("Your note has been saved!");
+  });
+
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
