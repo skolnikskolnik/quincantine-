@@ -31,11 +31,11 @@ app.use(express.static("public"));
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/notes.html"));
+    res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 // Displays all notes as json
@@ -45,20 +45,22 @@ app.get("/api/notes", function(req, res) {
 
 
 //Creates a path for post requesting new notes
-//I'll go through here and console log and find where it happens twice
 app.post("/api/notes", function(req, res) {
+    //Console logging newNote shows ONE object 
     let newNote = req.body;
   
     // Using a RegEx Pattern to remove spaces from newNote
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
     let id = newNote.title.replace(/\s+/g, "").toLowerCase();
-
+    
     newNote.id = id;
-  
-    dbNotes.push(newNote);
 
+    dbNotes.push(newNote);
+    console.log("this is the first test");
+    
     //Why is this happening twice?? It is pushing twice when the post request occurs client-side but when done on postman it works
     writeFileAsync('./db/db.json', JSON.stringify(dbNotes)).then(function(){
+        console.log("test bby");
         res.json(newNote);
     }).catch(err => {
         console.log(err);
