@@ -14,7 +14,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT||3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -45,6 +45,7 @@ app.get("/api/notes", function(req, res) {
 
 
 //Creates a path for post requesting new notes
+//Why is this happening twice?
 app.post("/api/notes", function(req, res) {
     //Console logging newNote shows ONE object 
     let newNote = req.body;
