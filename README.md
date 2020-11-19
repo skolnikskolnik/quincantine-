@@ -16,7 +16,7 @@
 This is an application where the user can enter notes to themselves that are stored on a server, and then they can view those notes at a later time. The user can also delete notes once they are finished with them. 
 
 ## Images of deployed application
-This application is deployed in Heroku. 
+This application is deployed in <a href='https://pure-atoll-78168.herokuapp.com/'>heroku.</a>    
 
 When the user arrives he or she is greeted with the following screen:
 ![welcome screen](./images/welcome_screen.JPG)
