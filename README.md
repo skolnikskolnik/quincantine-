@@ -4,6 +4,7 @@
 
 # Table of contents
 1. [Description](#Description)
+2. [Images of deployed application](#Images-of-deployed-application)
 2. [Installation instructions](#Installation-instructions)
 3. [Usage](#usage)
 4. [Contributions](#Contributions)
