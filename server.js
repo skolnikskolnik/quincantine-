@@ -43,6 +43,14 @@ app.get("/api/notes", function (req, res) {
   res.json(dbNotes);
 });
 
+app.get('/', function(req, res){
+  res.redirect(path.join(__dirname, "./public/index.html"));
+});
+
+app.get('*', function(req,res){
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+})
+
 
 //Creates a path for post requesting new notes
 //Why is this happening twice?
