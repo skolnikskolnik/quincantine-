@@ -43,17 +43,13 @@ app.get("/api/notes", function (req, res) {
   res.json(dbNotes);
 });
 
-app.get('/', function(req, res){
-  res.redirect(path.join(__dirname, "./public/index.html"));
-});
-
-app.get('*', function(req,res){
+//We want to display the home page is user enters an incorrect HTML
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
-})
+});
 
 
 //Creates a path for post requesting new notes
-//Why is this happening twice?
 app.post("/api/notes", function (req, res) {
   //Console logging newNote shows ONE object 
   let newNote = req.body;
